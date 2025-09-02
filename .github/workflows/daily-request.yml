@@ -2,10 +2,8 @@ name: Daily API Request
 
 on:
   schedule:
-    # 13:00 UTC ~ 09:00 en Chile cuando está en UTC-4 (invierno).
-    # Ajusta este horario si cambia el huso horario (ver versión DST-safe abajo).
     - cron: "0 13 * * *"
-  workflow_dispatch: {} # Permite correrlo manualmente
+  workflow_dispatch: {}
 
 jobs:
   request:
@@ -20,15 +18,15 @@ jobs:
         run: |
           # Fechas en zona horaria de Santiago
           YEAR=$(TZ="America/Santiago" date +"%Y")
-          PREV_MONTH=$(TZ="America/Santiago" date -d "-1 month" +"%-m") # sin ceros a la izquierda
-          PREV_DAY=$(TZ="America/Santiago" date -d "-1 day" +"%-d")     # sin ceros a la izquierda
+          PREV_MONTH=$(TZ="America/Santiago" date -d "-1 month" +"%-m")
+          PREV_DAY=$(TZ="America/Santiago" date -d "-1 day" +"%-d")
 
           # JSON exacto que requiere tu API
           BODY=$(cat <<EOF
 [
   [
     {
-      "idUsuario": "${{ secrets.DNI || '200807197' }}",
+      "idUsuario": "${{ secrets.DNI }}",
       "day": $PREV_DAY,
       "month": $PREV_MONTH,
       "year": $YEAR,
@@ -42,24 +40,22 @@ jobs:
 EOF
 )
 
-          echo "body<<EOF" >> $GITHUB_OUTPUT
-          echo "$BODY" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          # Exportar JSON como output del step
+          echo "body=$BODY" >> $GITHUB_OUTPUT
 
       - name: Call API
         run: |
-          # Muestra qué se enviará (útil para auditoría)
           echo "Payload:"
-          echo '${{ steps.build.outputs.body }}'
+          echo "${{ steps.build.outputs.body }}"
 
           RESPONSE=$(curl -s -o response.json -w "%{http_code}" \
             -X POST "https://iaweb.atmira.com/ia-api/schedule/save" \
             -H "Accept: application/json, text/plain, */*" \
             -H "Content-Type: application/json" \
-            -H "Matricula: ${{ secrets.MATRICULA}}" \
-            -H "dni: ${{ secrets.DNI}}" \
+            -H "Matricula: ${{ secrets.MATRICULA }}" \
+            -H "dni: ${{ secrets.DNI }}" \
             -b "cookiesession1=${{ secrets.COOKIE }}" \
-            -d '${{ steps.build.outputs.body }}')
+            -d "${{ steps.build.outputs.body }}")
 
           echo "HTTP status: $RESPONSE"
 
