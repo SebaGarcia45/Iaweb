@@ -2,7 +2,7 @@ name: Daily API Request
 
 on:
   schedule:
-    - cron: "0 13 * * *"
+    - cron: "0 13 * * 1-5" # lunes a viernes a las 13:00 UTC (~09:00 Chile)
   workflow_dispatch: {}
 
 jobs:
@@ -13,16 +13,13 @@ jobs:
       cancel-in-progress: true
 
     steps:
-      - name: Build dynamic JSON (Chile TZ)
-        id: build
+      - name: Build JSON (Chile TZ)
         run: |
-          # Fechas en zona horaria de Santiago
           YEAR=$(TZ="America/Santiago" date +"%Y")
           PREV_MONTH=$(TZ="America/Santiago" date -d "-1 month" +"%-m")
           PREV_DAY=$(TZ="America/Santiago" date -d "-1 day" +"%-d")
 
-          # JSON exacto que requiere tu API
-          BODY=$(cat <<EOF
+          cat > payload.json <<EOF
           [
             [
               {
@@ -38,18 +35,12 @@ jobs:
             []
           ]
           EOF
-          )
 
-          # Exportar como output multilínea
-          echo "body<<EOF" >> $GITHUB_OUTPUT
-          echo "$BODY" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "✅ JSON generado:"
+          cat payload.json
 
       - name: Call API
         run: |
-          echo "Payload enviado:"
-          echo "${{ steps.build.outputs.body }}"
-
           RESPONSE=$(curl -s -o response.json -w "%{http_code}" \
             -X POST "https://iaweb.atmira.com/ia-api/schedule/save" \
             -H "Accept: application/json, text/plain, */*" \
@@ -57,7 +48,7 @@ jobs:
             -H "Matricula: ${{ secrets.MATRICULA }}" \
             -H "dni: ${{ secrets.DNI }}" \
             -b "cookiesession1=${{ secrets.COOKIE }}" \
-            -d "${{ steps.build.outputs.body }}")
+            --data-binary @payload.json)
 
           echo "HTTP status: $RESPONSE"
 
