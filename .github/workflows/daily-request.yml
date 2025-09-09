@@ -333,24 +333,37 @@ jobs:
           echo "✅ JSON generado:"
           cat payload.json
 
-      - name: Call API
+      - name: Call API for each user
         run: |
-          RESPONSE=$(curl -s -o response.json -w "%{http_code}" \
-            -X POST "https://iaweb.atmira.com/ia-api/schedule/save" \
-            -H "Accept: application/json, text/plain, */*" \
-            -H "Content-Type: application/json" \
-            -H "Matricula: ${{ secrets.MATRICULA }}" \
-            -H "dni: ${{ secrets.DNI }}" \
-            -b "cookiesession1=${{ secrets.COOKIE }}" \
-            --data-binary @payload.json)
+          USERS_JSON='${{ secrets.USERS_JSON }}'
 
-          echo "HTTP status: $RESPONSE"
+          echo "Iterando sobre usuarios..."
+          echo "$USERS_JSON" | jq -c '.[]' | while read user; do
+            DNI=$(echo $user | jq -r '.dni')
+            MATRICULA=$(echo $user | jq -r '.matricula')
 
-          if [ "$RESPONSE" -lt 200 ] || [ "$RESPONSE" -ge 300 ]; then
-            echo "❌ Request failed"
+            echo "➡️ Enviando request para DNI=$DNI, Matricula=$MATRICULA"
+
+            # Crear payload específico reemplazando el placeholder
+            sed "s/DNI_PLACEHOLDER/$DNI/" payload_base.json > payload.json
+
+            RESPONSE=$(curl -s -o response.json -w "%{http_code}" \
+              -X POST "https://iaweb.atmira.com/ia-api/schedule/save" \
+              -H "Accept: application/json, text/plain, */*" \
+              -H "Content-Type: application/json" \
+              -H "Matricula: $MATRICULA" \
+              -H "dni: $DNI" \
+              -b "cookiesession1=${{ secrets.COOKIE }}" \
+              --data-binary @payload.json)
+
+            echo "HTTP status: $RESPONSE"
+
+            if [ "$RESPONSE" -lt 200 ] || [ "$RESPONSE" -ge 300 ]; then
+              echo "❌ Request failed para DNI=$DNI"
+              cat response.json || true
+              exit 1
+            fi
+
+            echo "✅ Request successful para DNI=$DNI"
             cat response.json || true
-            exit 1
-          fi
-
-          echo "✅ Request successful"
-          cat response.json || true
+          done
