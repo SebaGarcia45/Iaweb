@@ -23,22 +23,22 @@ jobs:
 
           # JSON exacto que requiere tu API
           BODY=$(cat <<EOF
-[
-  [
-    {
-      "idUsuario": "${{ secrets.DNI }}",
-      "day": $PREV_DAY,
-      "month": $PREV_MONTH,
-      "year": $YEAR,
-      "horaEntrada": "08:00",
-      "horaSalida": "18:00",
-      "dayClass": "imputacionNormal"
-    }
-  ],
-  []
-]
-EOF
-)
+            [
+              [
+                {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": $PREV_DAY,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal"
+                }
+              ],
+              []
+            ]
+            EOF
+            )
 
           # Exportar JSON como output del step
           echo "body=$BODY" >> $GITHUB_OUTPUT
