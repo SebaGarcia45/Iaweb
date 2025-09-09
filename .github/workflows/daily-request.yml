@@ -19,7 +19,7 @@ jobs:
           PREV_MONTH=$(TZ="America/Santiago" date -d "-1 month" +"%-m")
           PREV_DAY=$(TZ="America/Santiago" date -d "-1 day" +"%-d")
 
-          cat > payload.json <<EOF
+          cat > payload_base.json <<EOF
           [
             [
               {
@@ -331,7 +331,7 @@ jobs:
           EOF
 
           echo "✅ JSON generado:"
-          cat payload.json
+          cat payload_base.json
 
       - name: Call API for each user
         run: |
