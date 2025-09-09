@@ -23,7 +23,7 @@ jobs:
           [
             [
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 0,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -33,7 +33,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 1,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -43,7 +43,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 2,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -53,7 +53,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 3,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -63,7 +63,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 4,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -74,7 +74,7 @@ jobs:
                   "diferencia": "10:30"
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 5,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -84,7 +84,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 6,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -94,7 +94,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 7,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -106,7 +106,7 @@ jobs:
                   "horaSalidaDefault": "17:30"
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 8,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -116,7 +116,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 9,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -126,7 +126,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 10,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -136,7 +136,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 11,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -146,7 +146,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 12,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -156,7 +156,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 13,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -166,7 +166,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 14,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -176,7 +176,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 15,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -186,7 +186,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 16,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -196,7 +196,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 17,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -206,7 +206,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 18,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -216,7 +216,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 19,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -226,7 +226,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 20,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -236,7 +236,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 21,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -246,7 +246,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 22,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -256,7 +256,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 23,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -266,7 +266,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 24,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -276,7 +276,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 25,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -286,7 +286,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 26,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -296,7 +296,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 27,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -306,7 +306,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 28,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
@@ -316,7 +316,7 @@ jobs:
                   "editable": true
               },
               {
-                  "idUsuario": "${{ secrets.DNI }}",
+                  "idUsuario": "DNI_PLACEHOLDER",
                   "day": 29,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
