@@ -23,13 +23,307 @@ jobs:
           [
             [
               {
-                "idUsuario": "${{ secrets.DNI }}",
-                "day": $PREV_DAY,
-                "month": $PREV_MONTH,
-                "year": $YEAR,
-                "horaEntrada": "08:00",
-                "horaSalida": "18:00",
-                "dayClass": "imputacionNormal"
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 0,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 1,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 2,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 3,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 4,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:30",
+                  "dayClass": "imputacionNormal",
+                  "editable": true,
+                  "diferencia": "10:30"
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 5,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionFestivo",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 6,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionFestivo",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 7,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true,
+                  "horaEntradaDefault": "08:00",
+                  "horaSalidaDefault": "17:30"
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 8,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 9,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 10,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 11,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 12,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionFestivo",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 13,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionFestivo",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 14,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 15,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 16,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 17,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 18,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 19,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionFestivo",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 20,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionFestivo",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 21,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 22,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 23,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 24,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 25,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 26,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionFestivo",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 27,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionFestivo",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 28,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
+              },
+              {
+                  "idUsuario": "${{ secrets.DNI }}",
+                  "day": 29,
+                  "month": $PREV_MONTH,
+                  "year": $YEAR,
+                  "horaEntrada": "08:00",
+                  "horaSalida": "18:00",
+                  "dayClass": "imputacionNormal",
+                  "editable": true
               }
             ],
             []
