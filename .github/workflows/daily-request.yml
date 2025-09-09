@@ -40,12 +40,14 @@ jobs:
           EOF
           )
 
-          # Exportar JSON como output del step
-          echo "body=$BODY" >> $GITHUB_OUTPUT
+          # Exportar como output multilínea
+          echo "body<<EOF" >> $GITHUB_OUTPUT
+          echo "$BODY" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Call API
         run: |
-          echo "Payload:"
+          echo "Payload enviado:"
           echo "${{ steps.build.outputs.body }}"
 
           RESPONSE=$(curl -s -o response.json -w "%{http_code}" \
