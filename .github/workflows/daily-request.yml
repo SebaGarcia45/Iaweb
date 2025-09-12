@@ -341,14 +341,15 @@ jobs:
           echo "$USERS_JSON" | jq -c '.[]' | while read user; do
             DNI=$(echo $user | jq -r '.dni')
             MATRICULA=$(echo $user | jq -r '.matricula')
+            USER_HASH=$(echo -n "$DNI" | sha256sum | cut -c1-8)
 
-            echo "➡️ Enviando request para DNI=$DNI, Matricula=$MATRICULA"
+            echo "➡️ Enviando request para usuario hash=$USER_HASH"
 
-            # Crear payload específico reemplazando el placeholder
-            sed "s/DNI_PLACEHOLDER/$DNI/" payload_base.json > payload.json
+            # Crear payload específico con el DNI
+            jq --arg dni "$DNI" '.[][] |= (.idUsuario = $dni)' payload_base.json > payload.json
 
             RESPONSE=$(curl -s -o response.json -w "%{http_code}" \
-              -X POST "https://iaweb.atmira.com/ia-api/schedule/save" \
+              -X POST "${{ secrets.API_URL }}" \
               -H "Accept: application/json, text/plain, */*" \
               -H "Content-Type: application/json" \
               -H "Matricula: $MATRICULA" \
@@ -356,14 +357,12 @@ jobs:
               -b "cookiesession1=${{ secrets.COOKIE }}" \
               --data-binary @payload.json)
 
-            echo "HTTP status: $RESPONSE"
-
             if [ "$RESPONSE" -lt 200 ] || [ "$RESPONSE" -ge 300 ]; then
-              echo "❌ Request failed para DNI=$DNI"
-              cat response.json || true
+              echo "❌ Falló request para usuario hash=$USER_HASH (HTTP $RESPONSE)"
+              jq '.status?, .message?' response.json || true
               exit 1
             fi
 
-            echo "✅ Request successful para DNI=$DNI"
-            cat response.json || true
+            echo "✅ Request exitoso para usuario hash=$USER_HASH"
+            jq '.status?, .message?' response.json || true
           done
