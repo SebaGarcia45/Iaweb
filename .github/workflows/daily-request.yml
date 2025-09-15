@@ -336,18 +336,18 @@ jobs:
       - name: Call API for each user
         run: |
           USERS_JSON='${{ secrets.USERS_JSON }}'
-
+      
           echo "Iterando sobre usuarios..."
           echo "$USERS_JSON" | jq -c '.[]' | while read user; do
             DNI=$(echo $user | jq -r '.dni')
             MATRICULA=$(echo $user | jq -r '.matricula')
             USER_HASH=$(echo -n "$DNI" | sha256sum | cut -c1-8)
-
+      
             echo "➡️ Enviando request para usuario hash=$USER_HASH"
-
+      
             # Crear payload específico con el DNI
             jq --arg dni "$DNI" '.[][] |= (.idUsuario = $dni)' payload_base.json > payload.json
-
+      
             RESPONSE=$(curl -s -o response.json -w "%{http_code}" \
               -X POST "${{ secrets.API_URL }}" \
               -H "Accept: application/json, text/plain, */*" \
@@ -356,13 +356,21 @@ jobs:
               -H "dni: $DNI" \
               -b "cookiesession1=${{ secrets.COOKIE }}" \
               --data-binary @payload.json)
-
+      
             if [ "$RESPONSE" -lt 200 ] || [ "$RESPONSE" -ge 300 ]; then
               echo "❌ Falló request para usuario hash=$USER_HASH (HTTP $RESPONSE)"
-              jq '.status?, .message?' response.json || true
+              if [ -s response.json ]; then
+                jq '.status?, .message?' response.json || echo "ℹ️ Respuesta no es JSON válida"
+              else
+                echo "ℹ️ Respuesta vacía del servidor"
+              fi
               exit 1
             fi
-
+      
             echo "✅ Request exitoso para usuario hash=$USER_HASH"
-            jq '.status?, .message?' response.json || true
+            if [ -s response.json ]; then
+              jq '.status?, .message?' response.json || echo "ℹ️ Respuesta no es JSON válida"
+            else
+              echo "ℹ️ Respuesta vacía del servidor"
+            fi
           done
