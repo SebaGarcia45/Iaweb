@@ -2,7 +2,7 @@ name: Daily API Request
 
 on:
   schedule:
-    - cron: "0 13 * * 1-5" # lunes a viernes a las 13:00 UTC (~09:00 Chile)
+    - cron: "0 12 * * 1-5" # lunes a viernes a las 12:00 UTC (~09:00 Chile)
   workflow_dispatch: {}
 
 jobs:
