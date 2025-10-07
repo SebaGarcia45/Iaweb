@@ -57,8 +57,8 @@ jobs:
                   "day": 3,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
-                  "horaEntrada": "00:00",
-                  "horaSalida": "00:00",
+                  "horaEntrada": "",
+                  "horaSalida": "",
                   "dayClass": "imputacionNormal",
                   "editable": true
               },
@@ -67,11 +67,10 @@ jobs:
                   "day": 4,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
-                  "horaEntrada": "00:00",
-                  "horaSalida": "00:00",
+                  "horaEntrada": "",
+                  "horaSalida": "",
                   "dayClass": "imputacionNormal",
-                  "editable": true,
-                  "diferencia": "10:30"
+                  "editable": true
               },
               {
                   "idUsuario": "DNI_PLACEHOLDER",
