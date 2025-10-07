@@ -57,8 +57,8 @@ jobs:
                   "day": 3,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
-                  "horaEntrada": "08:00",
-                  "horaSalida": "18:00",
+                  "horaEntrada": "",
+                  "horaSalida": "",
                   "dayClass": "imputacionNormal",
                   "editable": true
               },
@@ -67,8 +67,8 @@ jobs:
                   "day": 4,
                   "month": $PREV_MONTH,
                   "year": $YEAR,
-                  "horaEntrada": "08:00",
-                  "horaSalida": "18:30",
+                  "horaEntrada": "",
+                  "horaSalida": "",
                   "dayClass": "imputacionNormal",
                   "editable": true,
                   "diferencia": "10:30"
